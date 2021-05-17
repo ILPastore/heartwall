@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bizapp/bizapp.iml" filepath="$PROJECT_DIR$/bizapp/bizapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/evolution/evolution.iml" filepath="$PROJECT_DIR$/evolution/evolution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/heartwall.iml" filepath="$PROJECT_DIR$/.idea/heartwall.iml" />
+    </modules>
+  </component>
+</project>
