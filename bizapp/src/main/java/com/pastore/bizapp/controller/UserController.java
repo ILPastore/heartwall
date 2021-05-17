@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/users")
 public class UserController {
 
-
     @RequestMapping(value = "/get", method= RequestMethod.GET)
-    public String getUserList() {
-        return "hello world!";
+    public String getUserList(String msg) {
+        throw new RuntimeException("真的是");
+//        return msg;
     }
-
 
 }

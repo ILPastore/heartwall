@@ -1,7 +1,6 @@
-package main.java.com.pastore.evolution.pojo;
+package com.pastore.bizapp.pojo;
 
 import lombok.Data;
-
 import java.util.Date;
 
 @Data
