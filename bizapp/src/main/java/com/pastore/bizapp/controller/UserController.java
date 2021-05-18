@@ -1,8 +1,8 @@
 package com.pastore.bizapp.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.pastore.bizapp.pojo.UserInfo;
+import com.pastore.evolution.common.ResResult;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value="/users")
@@ -10,8 +10,13 @@ public class UserController {
 
     @RequestMapping(value = "/get", method= RequestMethod.GET)
     public String getUserList(String msg) {
-        throw new RuntimeException("真的是");
-//        return msg;
+        return msg;
     }
+
+    @PostMapping("/getUser")
+    public ResResult<UserInfo> getUser(@RequestBody UserInfo userInfo) {
+        return ResResult.success(userInfo);
+    }
+
 
 }

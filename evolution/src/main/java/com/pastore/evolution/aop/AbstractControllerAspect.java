@@ -1,5 +1,6 @@
 package com.pastore.evolution.aop;
 
+import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -22,15 +23,15 @@ public abstract class AbstractControllerAspect {
     private Object doAroundService(ProceedingJoinPoint pjp) {
         Object result = null;
         try {
-            log.info("服务开始调用：{}，请求参数：{}", pjp.getSignature().toString(), Arrays.toString(pjp.getArgs()));
+            log.info("服务开始调用：{}，请求参数：{}", pjp.getSignature().toString(), JSONUtil.toJsonStr(pjp.getArgs()));
             long begin = System.nanoTime();
             result = pjp.proceed();
             long end = System.nanoTime();
-            log.info("服务结束调用：{}，请求参数：{}，cost time：{} ns，cost：{} ms",
-                    pjp.getSignature().toString(), Arrays.toString(pjp.getArgs()), (end - begin), (end - begin) / 1000000);
+            log.info("服务结束调用：{}，响应结果：{}，cost time：{} ns，cost：{} ms",
+                    pjp.getSignature().toString(), JSONUtil.toJsonStr(result), (end - begin), (end - begin) / 1000000);
         } catch (Throwable e) {
-            log.error("服务调用异常：{}，请求参数：{}", new Object[] {pjp.getSignature().toString(),
-                    Arrays.toString(pjp.getArgs()), e});
+            log.error("服务调用异常：{}，请求参数：{}", pjp.getSignature().toString(),
+                    JSONUtil.toJsonStr(pjp.getArgs()), e);
         }
 
         return result;
